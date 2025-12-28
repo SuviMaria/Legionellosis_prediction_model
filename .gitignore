@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# Secrets
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (optional – decide)
+data/raw/*
+
+
