@@ -7,4 +7,12 @@ Legionnellosis shows strong seasonality trend all over the world. Seasonality ha
 <img width="883" height="616" alt="image" src="https://github.com/user-attachments/assets/599ada1d-9e2c-44b9-b8f7-bebd253f2398" />
 
 ## Dataset
-I created my own dataset from publicly available data from THL and Ilmatieteen laitos.
+Dataset was created from publicly available data from THL and Ilmatieteen laitos. The weather data included data from four different measuring stations mainly in southern Finland as the population density is highest in the southern region of Finland. In the THL publicly available data, the cases are reported only on national level and for this reason the weather data was acquired mainly from the southern Finland.
+
+The data was acquired from the following sources:
+- THL, tartuntatautirekisteri, 2025
+- Ilmatieteenlaitos, havaintojen lataus, 2025
+    - Vaasa Palosaari
+    - Kuopio Maaninka
+    - Pirkkala-Tampere lentoasema
+    - Vantaa Helsinki-Vantaa lentoasema
