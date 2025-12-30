@@ -7,7 +7,9 @@ Legionnellosis shows strong seasonality trend all over the world. Seasonality ha
 <img width="883" height="616" alt="image" src="https://github.com/user-attachments/assets/599ada1d-9e2c-44b9-b8f7-bebd253f2398" />
 
 ## Dataset
-Dataset was created from publicly available data from THL and Ilmatieteen laitos. The weather data included data from four different measuring stations mainly in southern Finland as the population density is highest in the southern region of Finland. In the THL publicly available data, the cases are reported only on national level and for this reason the weather data was acquired mainly from the southern Finland.
+Dataset was created from publicly available data from THL and Ilmatieteen laitos. The weather data included data from four different measuring stations mainly in southern Finland as the population density is highest in the southern region of Finland. In the THL publicly available data, the cases are reported only on national level and for this reason the weather data was acquired mainly from the southern Finland. 
+
+The assessed variables were rainfall and daily mean temperature as the combination of these two variables have an effect to the air humidity - an important legionellosis marker. 
 
 The data was acquired from the following sources:
 - THL, tartuntatautirekisteri, 2025
@@ -16,3 +18,30 @@ The data was acquired from the following sources:
     - Kuopio Maaninka
     - Pirkkala-Tampere lentoasema
     - Vantaa Helsinki-Vantaa lentoasema
+
+The data preprocessing steps included:
+- Removing empty lines from both datasets
+- In legionellosis dataset: 
+    - Splitting the date line to year and month
+    - Removing the lines that have all the cases of the year
+    - Decoding the data to utf-8 format
+    - Converting the months from Finnish names to ordinal numbers
+
+The datasets were combined after cleaning and analyzed as pandas dataframes.
+
+## Data analysis
+The relationship between rainfall, monthly mean temperature and the incidence rate was assessed using Poisson regression, negative binomial regression and time-lag analysis. Both models were used with time-lag as the effect of rainfall likely doesn't show immediately. The model was tested using one, two and three month time lags. In a previous study the time lag for legionellosis cases was measured in weeks but as the publicly available data isn't available on weekly basis, months were used. The model was also tested with seasonality control. 
+
+## Poisson regression:
+- Assumes that the outcome follows a Poisson distribution
+- Assumes variance = mean (equidispersion)
+- Count data, non-negative discrete integer values
+- Models log of expected count
+
+## Negative binomial regression:
+- Generalization of Poisson regression model
+- Assumes variance > mean (overdispersion)
+
+
+
+
