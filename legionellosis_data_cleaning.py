@@ -59,8 +59,12 @@ with open('/Users/suviketola/Desktop/Projektit/Legionellosis_prediction_project/
 
     for row in reader:
 
-        # Cleaning lines that have the compilation text
+        # Cleaning rows that have the compilation text
         if row['Vuosi'] == "Vuosi":
+            continue
+
+        # Cleaning the rows less than 1995
+        if int(row['Vuosi']) < 1995:
             continue
 
         # Cleaning empty lines
