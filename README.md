@@ -9,15 +9,28 @@ Legionnellosis shows strong seasonality trend all over the world. Seasonality ha
 ## Dataset
 Dataset was created from publicly available data from THL and Ilmatieteen laitos. The weather data included data from four different measuring stations mainly in southern Finland as the population density is highest in the southern region of Finland. In the THL publicly available data, the cases are reported only on national level and for this reason the weather data was acquired mainly from the southern Finland. 
 
-The assessed variables were rainfall and daily mean temperature as the combination of these two variables have an effect to the air humidity - an important legionellosis marker. 
+The assessed variables were monthly rainfall and monthly mean temperature as the combination of these two variables have an effect to the air humidity - an important legionellosis marker. 
 
 The data was acquired from the following sources:
 - THL, tartuntatautirekisteri, 2025
 - Ilmatieteenlaitos, havaintojen lataus, 2025
-    - Vaasa Palosaari
-    - Kuopio Maaninka
-    - Pirkkala-Tampere lentoasema
     - Vantaa Helsinki-Vantaa lentoasema
+    - Naantali, Raula
+    - Kokkola, Öja Märskar
+    - Luvia, Peränkylä
+    - Kemiönsaari, Kemiö
+    - Ruotsinpyhtää, Keitala
+    - Hartola, Hotila
+    - Tampere, Härmälä
+    - Peräseinäjoki, Haukineva
+    - Kerimäki, Yläkuona
+    - Mäntyharju, Toivola
+    - Mäntsälä, Hirvihaara
+    - Lahti, Sopenkorpi
+    - Kaarina Yltöinen
+    - Oulu, Linnamaa
+    - Juva, Partala
+
 
 The data preprocessing steps included:
 - Removing empty lines from both datasets

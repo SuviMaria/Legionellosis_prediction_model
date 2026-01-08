@@ -1,24 +1,24 @@
 """
 30.12.2025
 Cleaning, normalizing, preprocessing and combining the legionellosis and 
-weather data. The steps include:
+weather data. The data is saved to pandas dataframe. 
+The data cleaning includes:
     - Cleaning empty lines from both files
     - Decoding the data to utf-8 format in legionellosis dataset
     - Normalizing the months to ordinal numbers to match the weather dataset 
     in legionellosis dataset
     - Cleaning the lines that include the yearly compilation of cases in 
     legionellosis dataset
-    - 
+After preprocessing the dataframes are merged to one for analysis.
 """
 
-from calendar import c
 import csv
 import pandas as pd
 
 # Helper function
 def convert_month(month):
     """
-    Convert a Finnish month name to its corresponding month number (1–12).
+    Convert a Finnish month name to its corresponding month number (1-12).
 
     Parameters
     ----------
@@ -28,7 +28,7 @@ def convert_month(month):
     Returns
     -------
     int
-        Month number (1–12)
+        Month number (1-12)
     """
 
     MONTH_MAP = {
@@ -59,19 +59,23 @@ with open('/Users/suviketola/Desktop/Projektit/Legionellosis_prediction_project/
 
     for row in reader:
 
+        # Cleaning lines that have the compilation text
+        if row['Vuosi'] == "Vuosi":
+            continue
+
         # Cleaning empty lines
-        if row['Ilman keskilämpötila [°C]'] == "-":
-            row['Ilman keskilämpötila [°C]'] = 0
-        if row['Sademäärä [mm]'] == "-":
-            row['Sademäärä [mm]'] = 0
+        if row['Kuukauden keskilämpötila [°C]'] == "-":
+            row['Kuukauden keskilämpötila [°C]'] = 0
+        if row['Kuukauden sadesumma [mm]'] == "-":
+            row['Kuukauden sadesumma [mm]'] = 0
 
         # Adding the data to list
         weather_data.append({
             'station': row['Havaintoasema'],
             'year': int(row['Vuosi']),
             'month': int(row['Kuukausi']),
-            'rainfall_mm': float(row['Sademäärä [mm]']),
-            'mean_temp_c': float(row['Ilman keskilämpötila [°C]'])
+            'rainfall_mm': float(row['Kuukauden sadesumma [mm]']),
+            'mean_temp_c': float(row['Kuukauden keskilämpötila [°C]'])
         })
 
 # Opening and reading legionellosis file contents
@@ -99,6 +103,7 @@ with open('/Users/suviketola/Desktop/Projektit/Legionellosis_prediction_project/
         # Converting months to numbers from Finnish month names
         month_num = convert_month(month)
 
+        # Adding the data to the initialized list
         legionella_data.append({
             'year': year,
             'month': int(month_num),
@@ -119,14 +124,7 @@ monthly_df_weather = df_weather.groupby(["date"]).agg(rainfall_mm=("rainfall_mm"
                                     year = ("year", "first"),
                                     date = ("date", "first"))
 
+# Merging the weather and legionellosis dataframes
 df = pd.merge(monthly_df_weather, df_legionellosis, on=['year', 'month'], how='outer')
-
-# Adding time lag. 
-df['rain_lag_1'] = df['rainfall_mm'].shift(1)
-df['rain_lag_2'] = df['rainfall_mm'].shift(2)
-df['rain_lag_3'] = df['rainfall_mm'].shift(3)
-
-# Removing NA-values
-df = df.dropna().copy()
 
 print(df)
