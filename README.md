@@ -63,4 +63,4 @@ Based on the results, the association between rainfall and legionellosis inciden
 
 Statistically significant association between monthly mean temperature and legionellosis incidence rate was also found with p-value of 0.005. These results could be summarized as 2.3% increase in cases per 1°C increase in monthly mean temperature. This is consistent with literature and supports the seasonality of legionellosis cases where most cases are found during summer months.
 
-In conclusion using a negative binomial regression to account for overdispersion, higher rainfall—particularly at 2–3 month lags—and higher mean temperature were associated with increased legionellosis incidence rates.
+In conclusion using a negative binomial regression to account for overdispersion, higher rainfall particularly at 2–3 month lags and higher mean temperature were associated with increased legionellosis incidence rates.
