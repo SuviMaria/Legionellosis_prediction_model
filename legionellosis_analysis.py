@@ -9,8 +9,7 @@ import legionellosis_data_cleaning as data
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
-# Checking variance and mean. As variance is greater,
-# negative binomial chosen
+# Checking variance and mean. As variance > mean, negative binomial chosen
 print(data.df['rainfall_mm'].mean())
 print(data.df['rainfall_mm'].var())
 
@@ -33,5 +32,3 @@ model_negative_bin = smf.negativebinomial(
 ).fit()
 
 print(model_negative_bin.summary())
-
-# Negative binomial regression
