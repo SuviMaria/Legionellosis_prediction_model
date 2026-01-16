@@ -1,7 +1,8 @@
 """
 30.12.2025
-Analysing the legionellosis data using Poisson regression and negative
-binomial regression of the statsmodels library. As variance 
+Analysing the legionellosis data using negative binomial regression of the statsmodels library. 
+As variance > mean (overdispersion) negative binomial regression
+model was chosen for the analysis.
 """
 
 
