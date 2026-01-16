@@ -1,13 +1,13 @@
-## Legionellosis prediction model
-Explore whether rainfall patterns can help explain or predict legionellosis case counts in Finland using time-series analysis and simple machine learning models
+## Legionellosis prediction 
+Explore whether rainfall and temperature patterns can help explain or predict legionellosis case counts in Finland using time-series analysis and simple machine learning models
 
 ## Background
-Legionnellosis shows strong seasonality trend all over the world. Seasonality has also grown stronger in Finland as shown in the graph below. One of the strongest short time legionellosis rate predictors is the amount of rainfall and humidity as shown in various papers. (Fisman ym., 2005; Beauté ym., 2016) In this project my goal is to create a model that predicts the legionellosis rate in the following months in Finland based on the rainfall and humidity.
+Legionnellosis shows strong seasonality trend all over the world. Seasonality has also grown stronger in Finland as shown in the graph I created for my bachelor thesis below. One of the strongest short time legionellosis rate predictors is the amount of rainfall and humidity as shown in various papers. (Fisman ym., 2005; Beauté ym., 2016) In this project my goal is to assess the legionellosis rate in the following months in Finland based on the rainfall and temperature.
 
 <img width="883" height="616" alt="image" src="https://github.com/user-attachments/assets/599ada1d-9e2c-44b9-b8f7-bebd253f2398" />
 
 ## Dataset
-Dataset was created from publicly available data from THL and Ilmatieteen laitos. The weather data included data from four different measuring stations mainly in southern Finland as the population density is highest in the southern region of Finland. In the THL (Finnish institute for health and welfare) publicly available data, the cases are reported only on national level and for this reason the weather data was acquired mainly from the southern Finland. 
+Dataset was created from publicly available data from THL (Finnish institute for health and welfare) and Ilmatieteen laitos (Finnish meteorological institute). The weather data included data from four different measuring stations mainly in southern Finland as the population density is highest in the southern region of Finland. In the THL publicly available data, the cases are reported only on a national level and for this reason the weather data was acquired mainly from the southern Finland. 
 
 The assessed variables were monthly rainfall and monthly mean temperature as the combination of these two variables have an effect to the air humidity which is an important legionellosis marker. 
 
