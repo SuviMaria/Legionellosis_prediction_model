@@ -55,26 +55,7 @@ The relationship between rainfall, monthly mean temperature and the incidence ra
 ## Results
 The summary of results is given below:
 
-                     NegativeBinomial Regression Results                      
-==============================================================================
-Dep. Variable:                  cases   No. Observations:                  369
-Model:               NegativeBinomial   Df Residuals:                      363
-Method:                           MLE   Df Model:                            5
-Date:                Thu, 08 Jan 2026   Pseudo R-squ.:                 0.02903
-Time:                        17:02:56   Log-Likelihood:                -729.16
-converged:                       True   LL-Null:                       -750.96
-Covariance Type:            nonrobust   LLR p-value:                 2.796e-08
-===============================================================================
-                  coef    std err          z      P>|z|      [0.025      0.975]
--------------------------------------------------------------------------------
-Intercept      -0.2991      0.181     -1.650      0.099      -0.654       0.056
-rainfall_mm     0.0056      0.002      2.233      0.026       0.001       0.010
-rain_lag_1      0.0034      0.002      1.433      0.152      -0.001       0.008
-rain_lag_2      0.0055      0.002      2.204      0.028       0.001       0.010
-rain_lag_3      0.0095      0.002      3.851      0.000       0.005       0.014
-mean_temp_c     0.0227      0.008      2.781      0.005       0.007       0.039
-alpha           0.5435      0.077      7.034      0.000       0.392       0.695
-===============================================================================
+<img width="616" height="409" alt="image" src="https://github.com/user-attachments/assets/7f08c8b5-f684-4160-a14b-4cccc3eef2c2" />
 
 Based on the LLR p-value of 2.796e-08, the results can be considered reliable and based on the alpha value of 0.5434 there is overdispersion present in the data and thus negative binomial model was the best fit for this dataset.
 
